@@ -53,6 +53,49 @@ You can find the full list of Opskins Trade API methods [here][1].
 
 All examples can be found [here][2]
 
+## TODO
+- [ ] ICase
+    - [ ] GetCaseSchema
+    - [ ] GetCaseOdds
+    - [ ] GetMinimumOpenVolume
+    - [ ] OpenWithKeys
+- [ ] ICaseSite
+    - [ ] GetKeyCount
+    - [ ] GetTradeStatus
+    - [ ] SendKeyRequest
+    - [ ] UpdateCommissionSettings
+- [ ] IEthereum
+    - [ ] GetContractAddress
+- [ ] IItem
+    - [ ] GetAllItems
+    - [ ] GetItemsById
+    - [ ] WithdrawToOpskins
+    - [ ] GetItemDefinitions
+    - [ ] GetRarityStats
+    - [ ] InstantSellRecentItems
+- [X] ITest
+    - [X] Test
+    - [X] TestAuthed
+    - [X] TestBody
+- [X] ITrade
+    - [X] AcceptOffer
+    - [X] CancelOffer
+    - [X] GetApps
+    - [X] GetOffer
+    - [X] GetOffers
+    - [X] GetTradeURL
+    - [X] GetUserInventory
+    - [X] GetUserInventoryFromSteamId
+    - [X] RegenerateTradeUrl
+    - [X] SendOffer
+    - [X] SendOfferToSteamId
+- [X] IUser
+    - [X] CreateVCaseUser
+    - [X] GetInventory
+    - [X] GetProfile
+    - [X] UpdateProfile
+    - [X] UserReports
+
 
 [1]: https://github.com/OPSkins/trade-opskins-api
 [2]: https://github.com/sofwar/trade-opskins-api/tree/master/examples
