@@ -1,0 +1,31 @@
+{
+    "name": "sofwar/trade-opskins-api",
+    "type": "library",
+    "description": "A Trade Opskins API client for PHP.",
+    "keywords": [
+        "opskins",
+        "op skins",
+        "skins",
+        "opskins-api",
+        "trade-api",
+        "api"
+    ],
+    "homepage": "https://github.com/sofwar/trade-opskins-api",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "SofWar",
+            "homepage": "https://github.com/sofwar"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "SofWar\\Opskins\\": "src/"
+        }
+    }
+}
