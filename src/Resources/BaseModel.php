@@ -2,7 +2,6 @@
 
 namespace SofWar\Opskins\Resources;
 
-
 abstract class BaseModel
 {
     /**
@@ -24,7 +23,7 @@ abstract class BaseModel
             }
         }
 
-        throw new \Exception('Fatal error: Call to undefined method ' . __CLASS__ . "->{$key}");
+        throw new \Exception('Fatal error: Call to undefined method '.__CLASS__."->{$key}");
     }
 
     public function getSource(): array
@@ -36,14 +35,14 @@ abstract class BaseModel
     {
         static $snakeCache = [];
 
-        $key = $value . $delimiter;
+        $key = $value.$delimiter;
 
         if (isset($snakeCache[$key])) {
             return $snakeCache[$key];
         }
 
         if (!ctype_lower($value)) {
-            $value = strtolower(preg_replace('/(.)(?=[A-Z])/', '$1' . $delimiter, $value));
+            $value = strtolower(preg_replace('/(.)(?=[A-Z])/', '$1'.$delimiter, $value));
         }
 
         return $snakeCache[$key] = $value;

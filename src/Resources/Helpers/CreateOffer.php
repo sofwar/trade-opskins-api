@@ -2,19 +2,17 @@
 
 namespace SofWar\Opskins\Resources\Helpers;
 
-
 class CreateOffer
 {
     /**
-     * User ID Opskins or Steam ID
+     * User ID Opskins or Steam ID.
      *
      * @var int|string
-     *
      */
     protected $uid;
 
     /**
-     * Trade token of user you want to send your trade offer to
+     * Trade token of user you want to send your trade offer to.
      *
      * @var string
      */
@@ -35,14 +33,14 @@ class CreateOffer
     protected $expiration_time;
 
     /**
-     * 2-factor authentication code
+     * 2-factor authentication code.
      *
      * @var int
      */
     protected $twofactor_code;
 
     /**
-     * Trade offer message that will be displayed to the recipient
+     * Trade offer message that will be displayed to the recipient.
      *
      * @var string
      */
@@ -118,20 +116,20 @@ class CreateOffer
 
     public function getIsSteamUid(): bool
     {
-        return strlen((string)$this->uid) >= 16;
+        return strlen((string) $this->uid) >= 16;
     }
 
     public function toArray(): array
     {
         return [
-            'uid' => $this->uid,
-            'token' => $this->token,
-            'message' => $this->message,
-            'trade_url' => $this->trade_url,
-            'twofactor_code' => $this->twofactor_code,
-            'expiration_time' => $this->expiration_time,
-            'items_to_send' => implode(',', $this->items_to_send),
-            'items_to_receive' => implode(',', $this->items_to_receive)
+            'uid'              => $this->uid,
+            'token'            => $this->token,
+            'message'          => $this->message,
+            'trade_url'        => $this->trade_url,
+            'twofactor_code'   => $this->twofactor_code,
+            'expiration_time'  => $this->expiration_time,
+            'items_to_send'    => implode(',', $this->items_to_send),
+            'items_to_receive' => implode(',', $this->items_to_receive),
         ];
     }
 

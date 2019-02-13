@@ -2,39 +2,38 @@
 
 namespace SofWar\Opskins\Resources\Helpers;
 
-
 class UpdateProfile
 {
     /**
-     * Name to display on trade offers
+     * Name to display on trade offers.
      *
      * @var string|null
      */
     protected $display_name;
 
     /**
-     * Whether inventory is private (nobody can see it, even with token)
+     * Whether inventory is private (nobody can see it, even with token).
      *
      * @var bool|null
      */
     protected $inventory_is_private;
 
     /**
-     * Hide my username in WAX transaction records
+     * Hide my username in WAX transaction records.
      *
      * @var bool|null
      */
     protected $anonymous_transactions;
 
     /**
-     * Auto-accept gift trade offers
+     * Auto-accept gift trade offers.
      *
      * @var bool|null
      */
     protected $auto_accept_gift_trades;
 
     /**
-     * Allow Two Factor code reuse for certain features (Send Offer, Accept Offer)
+     * Allow Two Factor code reuse for certain features (Send Offer, Accept Offer).
      *
      * @var bool|null
      */
@@ -77,11 +76,11 @@ class UpdateProfile
     public function toArray(): array
     {
         return [
-            'display_name' => $this->display_name,
-            'inventory_is_private' => $this->inventory_is_private,
-            'anonymous_transactions' => $this->anonymous_transactions,
-            'auto_accept_gift_trades' => $this->auto_accept_gift_trades,
-            'allow_twofactor_code_reuse' => $this->allow_twofactor_code_reuse
+            'display_name'               => $this->display_name,
+            'inventory_is_private'       => $this->inventory_is_private,
+            'anonymous_transactions'     => $this->anonymous_transactions,
+            'auto_accept_gift_trades'    => $this->auto_accept_gift_trades,
+            'allow_twofactor_code_reuse' => $this->allow_twofactor_code_reuse,
         ];
     }
 }

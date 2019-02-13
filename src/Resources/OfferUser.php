@@ -2,31 +2,31 @@
 
 namespace SofWar\Opskins\Resources;
 
-
 class OfferUser extends BaseModel
 {
     /**
-     * OPSkins.com User ID
+     * OPSkins.com User ID.
+     *
      * @var int
      */
     protected $id;
 
     /**
-     * SteamID
+     * SteamID.
      *
      * @var string|null
      */
     protected $steam_id;
 
     /**
-     * User display name
+     * User display name.
      *
      * @var string
      */
     protected $name;
 
     /**
-     * User Avatar image URL
+     * User Avatar image URL.
      *
      * @var string
      */
@@ -35,7 +35,7 @@ class OfferUser extends BaseModel
     /**
      * Is this user verified on OPSkins by support?
      *
-     * @var boolean
+     * @var bool
      */
     protected $verified;
 

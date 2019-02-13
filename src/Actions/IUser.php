@@ -23,20 +23,21 @@ class IUser
     }
 
     /**
-     * Get Your Profile
+     * Get Your Profile.
      *
      * https://api-trade.opskins.com/IUser/GetProfile/v1/
      *
-     * @param bool $with_extra - Should we send sensitive user data? Defaults to false
+     * @param bool   $with_extra   - Should we send sensitive user data? Defaults to false
      * @param string $access_token
      *
-     * @return GetProfile
      * @throws \SofWar\Opskins\Exceptions\OpskinsApiException
+     *
+     * @return GetProfile
      */
     public function get(bool $with_extra = false, string $access_token = null): GetProfile
     {
         $params = [
-            'with_extra' => $with_extra
+            'with_extra' => $with_extra,
         ];
 
         $body = $this->request->get('IUser/GetProfile', $params, [], $access_token);
@@ -45,16 +46,17 @@ class IUser
     }
 
     /**
-     * Update Your Profile
+     * Update Your Profile.
      *
      * https://api-trade.opskins.com/IUser/UpdateProfile/v1/
      *
      * @param \SofWar\Opskins\Resources\Helpers\UpdateProfile|array $data
-     * @param string $access_token
+     * @param string                                                $access_token
      *
-     * @return UpdateProfile
      * @throws OpskinsClientException
      * @throws \SofWar\Opskins\Exceptions\OpskinsApiException
+     *
+     * @return UpdateProfile
      */
     public function update($data, string $access_token = null): UpdateProfile
     {
@@ -62,7 +64,7 @@ class IUser
 
         if ($data instanceof \SofWar\Opskins\Resources\Helpers\UpdateProfile) {
             $params = $data->toArray();
-        } else if (is_array($data)) {
+        } elseif (is_array($data)) {
             $params = $data;
         }
 
@@ -76,21 +78,23 @@ class IUser
     }
 
     /**
-     * Reports a trade offer
+     * Reports a trade offer.
      *
-     * @param string $message
-     * @param int $offer_id
-     * @param int $report_type
+     * @param string      $message
+     * @param int         $offer_id
+     * @param int         $report_type
      * @param string|null $access_token
-     * @return EmptyObject
+     *
      * @throws \SofWar\Opskins\Exceptions\OpskinsApiException
+     *
+     * @return EmptyObject
      */
     public function report(string $message, int $offer_id, int $report_type = 3, string $access_token = null): EmptyObject
     {
         $params = [
-            'message' => $message,
-            'offer_id' => $offer_id,
-            'report_type' => $report_type
+            'message'     => $message,
+            'offer_id'    => $offer_id,
+            'report_type' => $report_type,
         ];
 
         $body = $this->request->post('IUser/UserReports', $params, [], $access_token);
@@ -101,14 +105,16 @@ class IUser
     /**
      * @param string $name
      * @param string $site_url
-     * @return CreateVCaseUser
+     *
      * @throws \SofWar\Opskins\Exceptions\OpskinsApiException
+     *
+     * @return CreateVCaseUser
      */
     public function createApiKeyCase(string $name, string $site_url): CreateVCaseUser
     {
         $params = [
             'display_name' => $name,
-            'site_url' => $site_url
+            'site_url'     => $site_url,
         ];
 
         $body = $this->request->post('IUser/UserReports', $params);
@@ -117,35 +123,35 @@ class IUser
     }
 
     /**
-     * Get Your Inventory
+     * Get Your Inventory.
      *
      * https://api-trade.opskins.com/IUser/GetInventory/v1/
      *
-     * @param int $app_id - Internal App ID
-     * @param bool $filter_in_trade - Removes items that are part of an active trade from the response.
-     * @param string|null $search - Additional search by item's name
-     * @param null $sort
-     * @param int $page - Page number in response (starting with 1, defaults to 1)
-     * @param int $limit - Number of items per_page in response (no more than 500)
-     * @param string $access_token
+     * @param int         $app_id          - Internal App ID
+     * @param bool        $filter_in_trade - Removes items that are part of an active trade from the response.
+     * @param string|null $search          - Additional search by item's name
+     * @param null        $sort
+     * @param int         $page            - Page number in response (starting with 1, defaults to 1)
+     * @param int         $limit           - Number of items per_page in response (no more than 500)
+     * @param string      $access_token
+     *
+     * @throws \SofWar\Opskins\Exceptions\OpskinsApiException
      *
      * @return Inventory
-     * @throws \SofWar\Opskins\Exceptions\OpskinsApiException
      */
     public function inventory(int $app_id, bool $filter_in_trade = false, string $search = null, $sort = null, int $page = 1, int $limit = 100, string $access_token = null): Inventory
     {
         $params = [
-            'page' => $page,
-            'per_page' => $limit,
-            'sort' => $sort,
-            'app_id' => $app_id,
-            'search' => $search,
-            'filter_in_trade' => $filter_in_trade
+            'page'            => $page,
+            'per_page'        => $limit,
+            'sort'            => $sort,
+            'app_id'          => $app_id,
+            'search'          => $search,
+            'filter_in_trade' => $filter_in_trade,
         ];
 
         $body = $this->request->get('IUser/GetInventory', $params, [], $access_token);
 
         return new Inventory($body);
     }
-
 }

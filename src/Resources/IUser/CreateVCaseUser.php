@@ -2,14 +2,12 @@
 
 namespace SofWar\Opskins\Resources\IUser;
 
-
 use SofWar\Opskins\Resources\BaseModel;
 use SofWar\Opskins\Resources\Profile;
 
 class CreateVCaseUser extends BaseModel
 {
     /**
-     *
      * @var Profile
      */
     protected $user;
