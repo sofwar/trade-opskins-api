@@ -1,1 +1,1 @@
-# trade-opskins-api
+# Opskins Trade API SDK
