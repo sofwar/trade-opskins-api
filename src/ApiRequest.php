@@ -8,6 +8,7 @@ use SofWar\Opskins\Exceptions\OpskinsApiException;
 
 class ApiRequest
 {
+    protected const VERSION = 'v1';
     protected const CONNECTION_TIMEOUT = 5;
     protected const HTTP_STATUS_CODE_OK = 200;
 
@@ -37,19 +38,19 @@ class ApiRequest
     /**
      * ApiRequest constructor.
      *
-     * @param string      $host
-     * @param string      $version
+     * @param string $host
+     * @param string $version
      * @param string|null $access_token
      */
-    public function __construct(string $host, string $version, ?string $access_token = null)
+    public function __construct(string $host, ?string $version = self::VERSION, ?string $access_token = null)
     {
         $this->host = $host;
         $this->version = $version;
         $this->access_token = $access_token;
 
         $this->client = new Client([
-            'base_uri'    => $host,
-            'timeout'     => self::CONNECTION_TIMEOUT,
+            'base_uri' => $host,
+            'timeout' => self::CONNECTION_TIMEOUT,
             'http_errors' => false,
         ]);
     }
@@ -58,8 +59,8 @@ class ApiRequest
      * Get call api.
      *
      * @param string $method
-     * @param array  $params
-     * @param array  $options
+     * @param array $params
+     * @param array $options
      * @param string $access_token
      *
      * @throws OpskinsApiException
@@ -68,7 +69,9 @@ class ApiRequest
      */
     public function get(string $method, array $params = [], array $options = [], ?string $access_token = null)
     {
-        $method .= '/'.$this->version;
+        if ($this->version !== null) {
+            $method .= '/' . $this->version;
+        }
 
         $options = $this->configOptions('GET', $params, $access_token, $options);
 
@@ -79,8 +82,8 @@ class ApiRequest
 
     /**
      * @param string $method
-     * @param array  $params
-     * @param array  $options
+     * @param array $params
+     * @param array $options
      * @param string $access_token
      *
      * @throws OpskinsApiException
@@ -89,7 +92,10 @@ class ApiRequest
      */
     public function post(string $method, array $params = [], array $options = [], string $access_token = null)
     {
-        $method .= '/'.$this->version;
+        if ($this->version !== null) {
+            $method .= '/' . $this->version;
+        }
+
         $options = $this->configOptions('POST', $params, $access_token, $options);
 
         $response = $this->client->post($method, $options);
@@ -109,7 +115,7 @@ class ApiRequest
      * Decodes the response and checks its status code and whether it has an Api error. Returns decoded response.
      *
      * @param ResponseInterface $response
-     * @param bool              $onlyResponse
+     * @param bool $onlyResponse
      *
      * @throws OpskinsApiException
      *
@@ -117,7 +123,7 @@ class ApiRequest
      */
     private function parseResponse(ResponseInterface $response, bool $onlyResponse = true)
     {
-        $body = $response->getBody();
+        $body = $response->getBody()->getContents();
 
         $decode_body = $this->decodeBody($body);
 
@@ -138,7 +144,7 @@ class ApiRequest
         if ($onlyResponse && isset($decode_body[static::KEY_RESPONSE])) {
             if (isset($decode_body['current_page'])) {
                 $decode_body[static::KEY_RESPONSE]['metadata'] = [
-                    'total'        => $decode_body['total_pages'] ?? 1,
+                    'total' => $decode_body['total_pages'] ?? 1,
                     'current_page' => $decode_body['current_page'],
                 ];
             }
@@ -168,17 +174,17 @@ class ApiRequest
     }
 
     /**
-     * @param string      $method
-     * @param array       $params
+     * @param string $method
+     * @param array $params
      * @param string|null $access_token
-     * @param array       $options
+     * @param array $options
      *
      * @return array
      */
     protected function configOptions(string $method, array $params = [], string $access_token = null, array $options = []): array
     {
         $_options = [
-            'headers'                                   => [],
+            'headers' => [],
             $method === 'GET' ? 'query' : 'form_params' => $params,
         ];
 
@@ -192,7 +198,7 @@ class ApiRequest
             if ($is_api_key) {
                 $_options['auth'] = [$access_token];
             } else {
-                $_options['headers']['Authorization'] = 'Bearer '.$access_token;
+                $_options['headers']['Authorization'] = 'Bearer ' . $access_token;
             }
         }
 

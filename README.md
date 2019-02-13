@@ -46,6 +46,43 @@ $opskins = new Opskins(');
 $opskins->setAccessToken('ACCESS_TOKEN'); 
 ```
 
+## Authorization
+The library provides the authorization flows for user based on OAuth 2.0 protocol implementation in Opskins API. Please read the full [documentation][3] before you start.
+
+### Authorization Code Flow
+For getting user access key use following command:
+
+```php
+
+$client_id = 'XXXXX';
+$client_secret = 'XXXXXXXXXXXX';
+
+$oauth = new \SofWar\Opskins\OpskinsOAuth($client_id, $client_secret);
+
+$state = 'secret_state_code';
+
+$browser_url = $oauth->getAuthorizeUrl($state, ['identity_basic', 'items']);
+```
+
+After successful authorization user's browser will be redirected to the specified redirect_uri. Meanwhile the code will be sent as a GET parameter to the specified address:
+
+```text
+https://example.com?code=CODE&state=STATE
+```
+Then use this method to get the access token:
+
+```php
+
+$client_id = 'XXXXX';
+$client_secret = 'XXXXXXXXXXXX';
+
+$oauth = new \SofWar\Opskins\OpskinsOAuth($client_id, $client_secret);
+
+$response = $oauth->getAccessToken($_GET['code']);
+
+$access_token = $response['access_token'];
+```
+
 ## API Request
 You can find the full list of Opskins Trade API methods [here][1].
 
@@ -99,3 +136,4 @@ All examples can be found [here][2]
 
 [1]: https://github.com/OPSkins/trade-opskins-api
 [2]: https://github.com/sofwar/trade-opskins-api/tree/master/examples
+[3]: https://docs.opskins.com/public/en.html#oauth
