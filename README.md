@@ -4,7 +4,7 @@
 [![Total Downloads](https://poser.pugx.org/sofwar/trade-opskins-api/downloads)](https://packagist.org/packages/sofwar/trade-opskins-api)
 [![Latest Unstable Version](https://poser.pugx.org/sofwar/trade-opskins-api/v/unstable)](https://packagist.org/packages/sofwar/trade-opskins-api)
 [![License](https://poser.pugx.org/sofwar/trade-opskins-api/license)](https://packagist.org/packages/sofwar/trade-opskins-api)
-
+[![StyleCI](https://styleci.io/repos/170465419/shield)](https://styleci.io/repos/170465419)
 
 This is the unofficial client library for the [Opskins Trade API][1]. We provide an intuitive, stable interface to integrate Opskins Trade API into your PHP project.
 
@@ -12,10 +12,14 @@ This is the unofficial client library for the [Opskins Trade API][1]. We provide
 
 Install the library using Composer. Please read the [Composer Documentation](https://getcomposer.org/doc/01-basic-usage.md) if you are unfamiliar with Composer or dependency managers in general.
 
-```composer
-"require": {
-    "sofwar/trade-opskins-api": "0.0.1"
-}
+```text
+composer require sofwar/trade-opskins-api
+```
+
+```text
+require __DIR__.'/../vendor/autoload.php';
+
+$opskins = new \SofWar\Opskins\Opskins();
 ```
 
 ## Access Token 
@@ -45,9 +49,9 @@ $opskins->setAccessToken('ACCESS_TOKEN');
 ## API Request
 You can find the full list of Opskins Trade API methods [here][1].
 
-### Request sample
+## Examples
 
-##### In the [examples][2] directory
+All examples can be found [here][2]
 
 
 [1]: https://github.com/OPSkins/trade-opskins-api
