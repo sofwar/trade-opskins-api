@@ -2,19 +2,19 @@
 
 namespace SofWar\Opskins\Resources\ITrade;
 
-
 use SofWar\Opskins\Resources\BaseModel;
 
 class GetTradeUrl extends BaseModel
 {
     /**
-     * OPSkins.com User ID
+     * OPSkins.com User ID.
+     *
      * @var int
      */
     protected $id;
 
     /**
-     * Your trade token
+     * Your trade token.
      *
      * @var string
      */
