@@ -9,21 +9,22 @@ use SofWar\Opskins\Resources\MetaData;
 class Inventory extends BaseModel
 {
     /**
-     * Total number of items (filtered, if search parameter is passed)
+     * Total number of items (filtered, if search parameter is passed).
      *
      * @var int
      */
     protected $total;
 
     /**
-     * Items list
-     * @var array
+     * Items list.
      *
+     * @var array
      */
     protected $items;
 
     /**
      * List of Item IDs and matching Offer IDs that are involved in active trade offers. Keys are Item IDs and values are an array of Offer IDs.
+     *
      * @var array
      */
     protected $items_in_active_offers;
@@ -37,7 +38,7 @@ class Inventory extends BaseModel
     {
         $this->source = $data;
 
-        $this->total = (int)($data['total'] ?? 0);
+        $this->total = (int) ($data['total'] ?? 0);
         $this->metadata = new MetaData($data['metadata'] ?? []);
 
         $this->items = [];

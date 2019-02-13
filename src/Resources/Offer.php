@@ -2,43 +2,41 @@
 
 namespace SofWar\Opskins\Resources;
 
-
 use SofWar\Opskins\Actions\ITrade;
 use SofWar\Opskins\Exceptions\OpskinsClientException;
-use SofWar\Opskins\Resources\ITrade\GetOfferAccept;
 
 class Offer extends BaseModel
 {
     /**
-     * Offer ID
+     * Offer ID.
      *
      * @var int
      */
     protected $id;
 
     /**
-     * Offer sender's information
+     * Offer sender's information.
      *
      * @var OfferUser
      */
     protected $sender;
 
     /**
-     * Offer recipient's information
+     * Offer recipient's information.
      *
      * @var OfferUser
      */
     protected $recipient;
 
     /**
-     * Offer state
+     * Offer state.
      *
      * @var int
      */
     protected $state;
 
     /**
-     * State's display name e.g "Active"
+     * State's display name e.g "Active".
      *
      * @var string
      */
@@ -54,40 +52,40 @@ class Offer extends BaseModel
     /**
      * Whether or not this offer is a gift (you are not losing any items).
      *
-     * @var boolean
+     * @var bool
      */
     protected $is_gift;
 
     /**
      * Whether or not this offer is from a vCase website.
      *
-     * @var boolean
+     * @var bool
      */
     protected $is_case_opening;
 
     /**
      * Whether or not the offer was sent by you. Not outputted on no-auth endpoints.
      *
-     * @var boolean
+     * @var bool
      */
     protected $send_by_you;
 
     /**
-     * Offer creation unix timestamp
+     * Offer creation unix timestamp.
      *
      * @var int
      */
     protected $time_created;
 
     /**
-     * Last update unix timestamp
+     * Last update unix timestamp.
      *
      * @var int
      */
     protected $time_updated;
 
     /**
-     * Offer expiration unix timestamp
+     * Offer expiration unix timestamp.
      *
      * @var int
      */
@@ -166,10 +164,11 @@ class Offer extends BaseModel
     }
 
     /**
-     * Accepts offer
+     * Accepts offer.
      *
-     * @param int $twofactor_code
+     * @param int         $twofactor_code
      * @param string|null $access_token
+     *
      * @throws \SofWar\Opskins\Exceptions\OpskinsApiException
      * @throws OpskinsClientException
      */
@@ -183,13 +182,14 @@ class Offer extends BaseModel
 
         $data = $body->getOffer();
 
-        $this->_update_data((array)$data);
+        $this->_update_data((array) $data);
     }
 
     /**
-     * Cancel offer
+     * Cancel offer.
      *
      * @param string|null $access_token
+     *
      * @throws \SofWar\Opskins\Exceptions\OpskinsApiException
      * @throws OpskinsClientException
      */
@@ -201,12 +201,14 @@ class Offer extends BaseModel
 
         $body = $this->ITrade->cancelOffer($this->id, $access_token);
 
-        $this->_update_data((array)$body);
+        $this->_update_data((array) $body);
     }
 
     /**
-     * Getting new information
+     * Getting new information.
+     *
      * @param string|null $access_token
+     *
      * @throws OpskinsClientException
      * @throws \SofWar\Opskins\Exceptions\OpskinsApiException
      */
@@ -218,18 +220,19 @@ class Offer extends BaseModel
 
         $body = $this->ITrade->get($this->id, $access_token);
 
-        $this->_update_data((array)$body);
+        $this->_update_data((array) $body);
     }
 
     /**
-     * @param string $message
-     * @param int $report_type
+     * @param string      $message
+     * @param int         $report_type
      * @param string|null $access_token
+     *
      * @throws \SofWar\Opskins\Exceptions\OpskinsApiException
      */
     public function report(string $message, int $report_type = 3, string $access_token = null): void
     {
-        $this->ITrade->reportOffer($message, (int)$this->id, $report_type, $access_token);
+        $this->ITrade->reportOffer($message, (int) $this->id, $report_type, $access_token);
     }
 
     private function _update_data(array $data): void

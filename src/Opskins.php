@@ -14,9 +14,10 @@ class Opskins
 
     /**
      * Opskins constructor.
+     *
      * @param string|null $access_token
-     * @param string $host
-     * @param string $version
+     * @param string      $host
+     * @param string      $version
      */
     public function __construct(string $access_token = null, string $host = 'https://api-trade.opskins.com', string $version = 'v1')
     {

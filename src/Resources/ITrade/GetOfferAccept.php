@@ -2,7 +2,6 @@
 
 namespace SofWar\Opskins\Resources\ITrade;
 
-
 use SofWar\Opskins\Resources\BaseModel;
 use SofWar\Opskins\Resources\Item;
 use SofWar\Opskins\Resources\Offer;
@@ -10,19 +9,20 @@ use SofWar\Opskins\Resources\Offer;
 class GetOfferAccept extends BaseModel
 {
     /**
-     *
      * @var Offer
      */
     protected $offer;
 
     /**
-     * New items for the recipient
+     * New items for the recipient.
+     *
      * @var array
      */
     protected $new_items = [];
 
     /**
      * A count of failed case openings, 0 if none failed.
+     *
      * @var int
      */
     protected $failed_cases = 0;

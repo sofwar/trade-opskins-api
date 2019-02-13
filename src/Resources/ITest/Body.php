@@ -2,7 +2,6 @@
 
 namespace SofWar\Opskins\Resources\ITest;
 
-
 use SofWar\Opskins\Resources\BaseModel;
 
 class Body extends BaseModel

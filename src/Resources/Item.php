@@ -2,18 +2,17 @@
 
 namespace SofWar\Opskins\Resources;
 
-
 class Item extends BaseModel
 {
     /**
-     * Item ID
+     * Item ID.
      *
      * @var int
      */
     protected $id;
 
     /**
-     * Internal App ID
+     * Internal App ID.
      *
      * @var int
      */
@@ -34,21 +33,21 @@ class Item extends BaseModel
     protected $sku;
 
     /**
-     * Wear float value, only applicable for certain apps
+     * Wear float value, only applicable for certain apps.
      *
-     * @var boolean
+     * @var bool
      */
     protected $wear;
 
     /**
      * Is item tradable? Items may be temporarily untradable during certain operations, e.g. transfers.
      *
-     * @var boolean
+     * @var bool
      */
     protected $tradable;
 
     /**
-     * Trade hold expiration date. null if no trade hold
+     * Trade hold expiration date. null if no trade hold.
      *
      * @var int|null
      */
@@ -62,7 +61,7 @@ class Item extends BaseModel
     protected $name;
 
     /**
-     * Full market name
+     * Full market name.
      *
      * @var string
      */
@@ -76,42 +75,42 @@ class Item extends BaseModel
     protected $category;
 
     /**
-     * Category rarity e.g. Covert -- only outputted for VGO
+     * Category rarity e.g. Covert -- only outputted for VGO.
      *
      * @var string|null
      */
     protected $rarity;
 
     /**
-     * Category type e.g. Rifle -- only outputted for VGO
+     * Category type e.g. Rifle -- only outputted for VGO.
      *
      * @var string|null
      */
     protected $type;
 
     /**
-     * Color hex
+     * Color hex.
      *
      * @var string
      */
     protected $color;
 
     /**
-     * Item's attributes
+     * Item's attributes.
      *
      * @var object
      */
     protected $attributes;
 
     /**
-     * Generic image URLs (300,600,900,1800,2500)px
+     * Generic image URLs (300,600,900,1800,2500)px.
      *
      * @var object
      */
     protected $images;
 
     /**
-     * OPSkins 7-day suggested price (US cents)
+     * OPSkins 7-day suggested price (US cents).
      *
      * @var int
      */
@@ -146,9 +145,9 @@ class Item extends BaseModel
     protected $eth_inspect;
 
     /**
-     * Pattern index (value between 1-1000) (only available for VGO, null for other apps)
+     * Pattern index (value between 1-1000) (only available for VGO, null for other apps).
      *
-     * @var  int
+     * @var int
      */
     protected $pattern_index;
 
@@ -167,13 +166,15 @@ class Item extends BaseModel
     protected $wear_tier_index;
 
     /**
-     * Unix timestamp of when this item was created
+     * Unix timestamp of when this item was created.
+     *
      * @var int
      */
     protected $time_created;
 
     /**
-     * Unix timestamp of when this item was last updated
+     * Unix timestamp of when this item was last updated.
+     *
      * @var int
      */
     protected $time_updated;

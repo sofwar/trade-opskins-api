@@ -2,7 +2,6 @@
 
 namespace SofWar\Opskins\Resources\ITrade;
 
-
 use SofWar\Opskins\Resources\BaseModel;
 use SofWar\Opskins\Resources\MetaData;
 use SofWar\Opskins\Resources\Offer;
@@ -10,12 +9,11 @@ use SofWar\Opskins\Resources\Offer;
 class GetOffers extends BaseModel
 {
     /**
-     * Total number of offers matching the input filters
+     * Total number of offers matching the input filters.
      *
      * @var int
      */
     protected $total;
-
 
     /**
      * @var MetaData
@@ -23,7 +21,8 @@ class GetOffers extends BaseModel
     protected $metadata;
 
     /**
-     * Lists offers
+     * Lists offers.
+     *
      * @var array
      */
     protected $offers = [];

@@ -8,80 +8,92 @@ use SofWar\Opskins\Resources\Helpers\UpdateProfile;
 class Profile extends BaseModel
 {
     /**
-     * OPSkins.com User ID
+     * OPSkins.com User ID.
+     *
      * @var int
      */
     protected $id;
 
     /**
-     * Steam ID64
-     * @var string
+     * Steam ID64.
      *
+     * @var string
      */
     protected $steam_id;
 
     /**
-     * Display name
+     * Display name.
+     *
      * @var string
      */
     protected $display_name;
 
     /**
-     * URL to avatar
+     * URL to avatar.
+     *
      * @var string
      */
     protected $avatar;
 
     /**
      * Whether or not user has Two-Factor Auth enabled.
-     * @var boolean
+     *
+     * @var bool
      */
     protected $twofactor_enabled;
 
     /**
-     * See whether user has an API Key
-     * @var boolean
+     * See whether user has an API Key.
+     *
+     * @var bool
      */
     protected $api_key_exists;
 
     /**
-     * (Optional via with_extra) Phone number used for SMS verification
+     * (Optional via with_extra) Phone number used for SMS verification.
+     *
      * @var string|null
      */
     protected $sms_phone;
 
     /**
      * Email address. Optional via with_extra, but it is always outputted with identity_basic OAuth Scope.
+     *
      * @var string|null
      */
     protected $contact_email;
 
     /**
-     * (Optional via with_extra) See whether inventory is private (no one can see it, even with a token)
-     * @var boolean|null
+     * (Optional via with_extra) See whether inventory is private (no one can see it, even with a token).
+     *
+     * @var bool|null
      */
     protected $inventory_is_private;
 
     /**
-     * Allow Two Factor code reuse for certain features (Send Offer, Accept Offer)
-     * @var boolean|null
+     * Allow Two Factor code reuse for certain features (Send Offer, Accept Offer).
+     *
+     * @var bool|null
      */
     protected $allow_twofactor_code_reuse;
 
     /**
-     * Auto-accept gift trade offers
-     * @var boolean|null
+     * Auto-accept gift trade offers.
+     *
+     * @var bool|null
      */
     protected $auto_accept_gift_trades;
 
     /**
-     * Hide username in WAX transaction records
+     * Hide username in WAX transaction records.
+     *
      * @var bool|null
      */
     protected $anonymous_transactions;
 
     /**
-     * VGO CASE USER
+     * VGO CASE USER.
+     *
      * @var bool|null
      */
     protected $vcase_restricted;
@@ -161,6 +173,7 @@ class Profile extends BaseModel
     /**
      * @param UpdateProfile|$data
      * @param string|null $access_token
+     *
      * @throws \SofWar\Opskins\Exceptions\OpskinsApiException
      * @throws \SofWar\Opskins\Exceptions\OpskinsClientException
      */
@@ -168,9 +181,8 @@ class Profile extends BaseModel
     {
         $body = $this->IUser->update($data, $access_token);
 
-        $this->_update_data(['user' => (array)$body]);
+        $this->_update_data(['user' => (array) $body]);
     }
-
 
     private function _update_data(array $data): void
     {

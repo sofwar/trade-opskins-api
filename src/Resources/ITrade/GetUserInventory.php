@@ -8,7 +8,8 @@ use SofWar\Opskins\Resources\IUser\Inventory;
 class GetUserInventory extends Inventory
 {
     /**
-     * User Inventory+
+     * User Inventory+.
+     *
      * @var object
      */
     protected $user;

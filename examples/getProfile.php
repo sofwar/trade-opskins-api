@@ -1,10 +1,9 @@
 <?php
 
-require('../vendor/autoload.php');
+require '../vendor/autoload.php';
 
-use SofWar\Opskins\Opskins;
 use SofWar\Opskins\Exceptions\OpskinsApiException;
-
+use SofWar\Opskins\Opskins;
 
 $opskins = new Opskins();
 

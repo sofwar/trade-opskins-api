@@ -2,7 +2,6 @@
 
 namespace SofWar\Opskins\Resources\ITrade;
 
-
 use SofWar\Opskins\Actions\ITrade;
 use SofWar\Opskins\Resources\Offer;
 

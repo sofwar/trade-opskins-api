@@ -2,25 +2,24 @@
 
 namespace SofWar\Opskins\Resources;
 
-
 class MetaData extends BaseModel
 {
     /**
-     * Limit of objects on the page
+     * Limit of objects on the page.
      *
      * @var int
      */
     //protected $limit;
 
     /**
-     * Total pages
+     * Total pages.
      *
      * @var int
      */
     protected $total;
 
     /**
-     * Current page
+     * Current page.
      *
      * @var int
      */
