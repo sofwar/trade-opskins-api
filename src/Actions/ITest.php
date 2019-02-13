@@ -44,7 +44,7 @@ class ITest
      *
      * @return TestUserId
      */
-    public function userId(string $access_token): TestUserId
+    public function userId(string $access_token = null): TestUserId
     {
         $body = $this->request->get('ITest/TestAuthed', [], [], $access_token);
 
@@ -61,7 +61,7 @@ class ITest
      *
      * @return TestBody
      */
-    public function body(string $method, string $access_token): TestBody
+    public function body(string $method, string $access_token = null): TestBody
     {
         if ($method === 'GET') {
             $body = $this->request->get('ITest/TestBody', [], [], $access_token);
