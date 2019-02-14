@@ -184,9 +184,143 @@ class Item extends BaseModel
         $this->source = $data;
 
         foreach ($data as $key => $value) {
+            if ($key === 'image') {
+                $key = 'images';
+            }
+
             if (property_exists($this, $key)) {
                 $this->{$key} = $value;
             }
         }
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getInternalAppId(): int
+    {
+        return $this->internal_app_id;
+    }
+
+    public function getDefId(): int
+    {
+        return $this->def_id;
+    }
+
+    public function getSku(): string
+    {
+        return $this->sku;
+    }
+
+    public function getWear(): float
+    {
+        return $this->wear;
+    }
+
+    public function getTradable(): bool
+    {
+        return $this->tradable;
+    }
+
+    public function getTradeHoldExpires(): ?int
+    {
+        return $this->trade_hold_expires;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getMarketName(): string
+    {
+        return $this->market_name;
+    }
+
+    public function getCategory(): string
+    {
+        return $this->category;
+    }
+
+    public function getRarity(): string
+    {
+        return $this->rarity;
+    }
+
+    public function getType(): string
+    {
+        return $this->type;
+    }
+
+    public function getColor(): string
+    {
+        return $this->color;
+    }
+
+    public function getImages()
+    {
+        return $this->images;
+    }
+
+    public function getSuggestedPrice(): int
+    {
+        return $this->suggested_price;
+    }
+
+    public function getSuggestedPriceFloor(): int
+    {
+        return $this->suggested_price_floor;
+    }
+
+    public function getPreviewUrls()
+    {
+        return $this->preview_urls;
+    }
+
+    public function getInspect(): ?string
+    {
+        return $this->inspect;
+    }
+
+    public function getEthInspect(): ?string
+    {
+        return $this->eth_inspect;
+    }
+
+    public function getPatternIndex(): int
+    {
+        return $this->pattern_index;
+    }
+
+    public function getPaintIndex(): ?int
+    {
+        return $this->paint_index;
+    }
+
+    public function getWearTierIndex(): int
+    {
+        return $this->wear_tier_index;
+    }
+
+    public function getTimeCreated(): int
+    {
+        return $this->time_created;
+    }
+
+    public function getTimeUpdated(): int
+    {
+        return $this->time_updated;
+    }
+
+    public function getAttributes()
+    {
+        return $this->attributes;
+    }
+
+    public function getAmount(): float
+    {
+        return round($this->suggested_price / 100, 2);
     }
 }
