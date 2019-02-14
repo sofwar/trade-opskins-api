@@ -196,7 +196,7 @@ class ApiRequest
             $is_api_key = strlen($access_token) < 35;
 
             if ($is_api_key) {
-                $_options['auth'] = [$access_token];
+                $_options['auth'] = [$access_token, ''];
             } else {
                 $_options['headers']['Authorization'] = 'Bearer ' . $access_token;
             }
