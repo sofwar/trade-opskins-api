@@ -103,13 +103,13 @@ All examples can be found [here][2]
     - [ ] UpdateCommissionSettings
 - [ ] IEthereum
     - [ ] GetContractAddress
-- [ ] IItem
-    - [ ] GetAllItems
-    - [ ] GetItemsById
-    - [ ] WithdrawToOpskins
-    - [ ] GetItemDefinitions
-    - [ ] GetRarityStats
-    - [ ] InstantSellRecentItems
+- [X] IItem
+    - [X] GetAllItems
+    - [X] GetItemsById
+    - [X] WithdrawToOpskins
+    - [X] GetItemDefinitions
+    - [X] GetRarityStats
+    - [X] InstantSellRecentItems
 - [X] ITest
     - [X] Test
     - [X] TestAuthed

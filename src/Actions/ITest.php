@@ -22,6 +22,8 @@ class ITest
     /**
      * A test endpoint that doesn't require authentication and doesn't return anything information other than the default status and time fields.
      *
+     * https://github.com/OPSkins/trade-opskins-api/blob/master/ITest.md#test-v1
+     *
      * @param string|null $access_token
      *
      * @throws \SofWar\Opskins\Exceptions\OpskinsApiException
@@ -38,6 +40,8 @@ class ITest
     /**
      * Test authed user.
      *
+     * https://github.com/OPSkins/trade-opskins-api/blob/master/ITest.md#testauthed-v1
+     *
      * @param string $access_token
      *
      * @throws \SofWar\Opskins\Exceptions\OpskinsApiException
@@ -53,6 +57,8 @@ class ITest
 
     /**
      * Return everything that was sent as input.
+     *
+     * https://github.com/OPSkins/trade-opskins-api/blob/master/ITest.md#testbody-v1
      *
      * @param string $method
      * @param string $access_token

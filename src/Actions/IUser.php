@@ -80,6 +80,8 @@ class IUser
     /**
      * Reports a trade offer.
      *
+     * https://github.com/OPSkins/trade-opskins-api/blob/master/IUser/UserReports.md
+     *
      * @param string $message
      * @param int $offer_id
      * @param int $report_type
@@ -103,6 +105,10 @@ class IUser
     }
 
     /**
+     * Create a special case-website user
+     *
+     * https://github.com/OPSkins/trade-opskins-api/blob/master/IUser/CreateVCaseUser.md
+     *
      * @param string $name
      * @param string $site_url
      *

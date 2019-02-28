@@ -9,7 +9,7 @@ use SofWar\Opskins\Exceptions\OpskinsApiException;
 class ApiRequest
 {
     protected const VERSION = 'v1';
-    protected const CONNECTION_TIMEOUT = 5;
+    protected const CONNECTION_TIMEOUT = 10;
     protected const HTTP_STATUS_CODE_OK = 200;
 
     private const KEY_STATUS_CODE = 'status';
@@ -145,6 +145,7 @@ class ApiRequest
             if (isset($decode_body['current_page'])) {
                 $decode_body[static::KEY_RESPONSE]['metadata'] = [
                     'total' => $decode_body['total_pages'] ?? 1,
+                    'last_page' => $decode_body['total_pages'] ?? 1,
                     'current_page' => $decode_body['current_page'],
                 ];
             }

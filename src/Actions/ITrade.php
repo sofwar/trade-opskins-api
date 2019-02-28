@@ -282,6 +282,10 @@ class ITrade
     }
 
     /**
+     * Reports a trade offer
+     *
+     * https://github.com/OPSkins/trade-opskins-api/blob/master/IUser/UserReports.md
+     *
      * @param string      $message
      * @param int         $offer_id
      * @param int         $report_type

@@ -2,6 +2,7 @@
 
 namespace SofWar\Opskins;
 
+use SofWar\Opskins\Actions\IItem;
 use SofWar\Opskins\Actions\ITest;
 use SofWar\Opskins\Actions\ITrade;
 use SofWar\Opskins\Actions\IUser;
@@ -16,8 +17,8 @@ class Opskins
      * Opskins constructor.
      *
      * @param string|null $access_token
-     * @param string      $host
-     * @param string      $version
+     * @param string $host
+     * @param string $version
      */
     public function __construct(string $access_token = null, string $host = 'https://api-trade.opskins.com', string $version = 'v1')
     {
@@ -37,6 +38,11 @@ class Opskins
     public function getITest(): ITest
     {
         return new ITest($this->request);
+    }
+
+    public function getIItem(): IItem
+    {
+        return new IItem($this->request);
     }
 
     public function setAccessToken(?string $access_token): void

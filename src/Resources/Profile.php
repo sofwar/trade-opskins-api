@@ -3,6 +3,7 @@
 namespace SofWar\Opskins\Resources;
 
 use SofWar\Opskins\Actions\IUser;
+use SofWar\Opskins\Exceptions\OpskinsClientException;
 use SofWar\Opskins\Resources\Helpers\UpdateProfile;
 
 class Profile extends BaseModel
@@ -179,6 +180,10 @@ class Profile extends BaseModel
      */
     public function update($data, string $access_token = null): void
     {
+        if ($this->IUser === null) {
+            throw new OpskinsClientException('IUser not initialized');
+        }
+
         $body = $this->IUser->update($data, $access_token);
 
         $this->_update_data(['user' => (array) $body]);

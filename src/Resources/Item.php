@@ -2,6 +2,11 @@
 
 namespace SofWar\Opskins\Resources;
 
+use SofWar\Opskins\Actions\IItem;
+use SofWar\Opskins\Enum\CurrencyType;
+use SofWar\Opskins\Exceptions\OpskinsClientException;
+use SofWar\Opskins\Resources\IItem\InstantSellRecentItems;
+
 class Item extends BaseModel
 {
     /**
@@ -179,9 +184,15 @@ class Item extends BaseModel
      */
     protected $time_updated;
 
-    public function __construct($data)
+    /**
+     * @var IItem|null
+     */
+    private $IItem;
+
+    public function __construct($data, ?IItem $IItem = null)
     {
         $this->source = $data;
+        $this->IItem = $IItem;
 
         foreach ($data as $key => $value) {
             if ($key === 'image') {
@@ -322,5 +333,23 @@ class Item extends BaseModel
     public function getAmount(): float
     {
         return round($this->suggested_price / 100, 2);
+    }
+
+    /**
+     * Instant Sell Recent Items
+     *
+     * @param int $currency_id
+     * @param string|null $access_token
+     * @return InstantSellRecentItems
+     * @throws OpskinsClientException
+     * @throws \SofWar\Opskins\Exceptions\OpskinsApiException
+     */
+    public function instantSell(int $currency_id = CurrencyType::USD, string $access_token = null): InstantSellRecentItems
+    {
+        if ($this->IItem === null) {
+            throw new OpskinsClientException('IItem not initialized');
+        }
+
+        return $this->IItem->instantSellRecentItems($this->id, $currency_id, $access_token);
     }
 }
