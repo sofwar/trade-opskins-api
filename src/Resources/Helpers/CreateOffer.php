@@ -65,7 +65,7 @@ class CreateOffer
         $this->uid = $data['uid'] ?? null;
         $this->token = $data['token'] ?? null;
         $this->trade_url = $data['trade_url'] ?? null;
-        $this->message = $data['expiration_time'] ?? null;
+        $this->message = $data['message'] ?? null;
 
         $this->items_to_send = $data['items_to_send'] ?? [];
         $this->items_to_receive = $data['items_to_receive'] ?? [];
